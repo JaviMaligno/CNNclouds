@@ -38,7 +38,7 @@ It mainly consists of separable convolution and relu activation layers. Finally 
 
 ## Results 
 
-The model I have uploaded is just the final one that I decided to keep in the end, but I have made several experiments tweaking different parameters. For instance, I tried different number of filters for each convolution layer. Changing the dropout also varies the performance but in a non-linear way, I found that it works better around 0.25. 
+The model I have uploaded is just the final one that I decided to keep in the end, but I have made several experiments tweaking different parameters. For instance, I tried different number of filters for each convolution layer. Changing the dropout also varies the performance but in a non-linear way, I found that it works better around 0.25. However I kept the number of epochs stable.
 
 Despite all these tweaks, the CNN performs very poorly, failing even on the train set and not being able to recognize the test images, which are given below.
 
