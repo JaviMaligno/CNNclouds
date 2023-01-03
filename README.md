@@ -9,7 +9,7 @@ For this reason, I decided to try and develop a Convolutional Neural Network (CN
 
 ## Description
 
-The training set, contained in the 'cloud' folder, is made of three folders, each for a type of cloud: cirrus, cumulonimbus and cumulus. Each of these folders contains 20 images, making a total of 60 images (this is a rather small dataset). Below there is an example of each type of cloud.
+The training set, contained in the 'cloud' folder, is made of three folders, each for a type of cloud: cirrus, cumulonimbus and cumulus. Each of these folders contains 20 images, making a total of 60 images (this is a rather small dataset). I augmented the train dataset via rotations. Below there is an example of each type of cloud.
 
 
   <p align = "center">
@@ -31,7 +31,25 @@ The neural network is designed in the function `make_model`. It is a simplificat
 
 It mainly consists of separable convolution and relu activation layers. Finally it has a global average pooling layer so that the output has only one dimension and a dense layer to make this dimension match the number of layers. A plot of the model can be seen below. 
 
+<p align = "center">
+<img src="https://user-images.githubusercontent.com/25660622/210354800-427188ba-1fc6-4347-9a49-121491b2aa27.png" alt="model" width = "400" height = "2000">
+  </p>
+
 
 ## Results 
 
-The model I have uploaded is just the final one that I decided to keep in the end, but I have made several experiments tweaking different parameters. For instance, I tried different number of filters for each convolution layer. Changing the dropout also varies the performance but in a non-linear way, I found that it works better between 0.25 and 0.5. 
+The model I have uploaded is just the final one that I decided to keep in the end, but I have made several experiments tweaking different parameters. For instance, I tried different number of filters for each convolution layer. Changing the dropout also varies the performance but in a non-linear way, I found that it works better around 0.25. 
+
+Despite all these tweaks, the CNN performs very poorly, failing even on the train set and not being able to recognize the test images, which are given below.
+
+<p align = "center">
+<img src="https://user-images.githubusercontent.com/25660622/210355465-373fbef5-ee3d-4f82-ad46-05f98383a04b.png" alt="Test 1" height = "400" width = "400">
+<img src="https://user-images.githubusercontent.com/25660622/210355648-d44df4bc-4e1b-49dd-8c6e-dbbd8ea1b019.png" alt="Test 2" width = "400" height = "400">
+</p>
+<p>
+Fig.2 - Tests: Cirrus, Cumulonimbus.</figcaption>
+  </p>
+
+For some reason, I found that whenever the CNN classified well the test images it would perform very poorly on the training set. This was usually correlated to greater dropout, which would explain worse performance on training set but not the better performance on test. However, the test is so small that we shouldn't infer anything from it. 
+
+Overall, my model is very bad.
