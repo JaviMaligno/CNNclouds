@@ -12,7 +12,17 @@ For this reason, I decided to try and develop a Convolutional Neural Network (CN
 The training set, contained in the 'cloud' folder, is made of three folders, each for a type of cloud: cirrus, cumulonimbus and cumulus. Each of these folders contains 20 images, making a total of 60 images (this is a rather small dataset). Below there is an example of each type of cloud.
 
 
+  <p align = "center">
+<img  src="https://user-images.githubusercontent.com/25660622/210348196-90e8d6cb-aac7-44eb-a046-26c8fcc2dd9c.jpg" alt="Cirrus" height = "250" width = "250">  
+<img src="https://user-images.githubusercontent.com/25660622/210349163-1e0570a6-f160-44af-9150-618c809cb6b8.jpg" alt="Cumulonimbus" height = "250" width = "250">
+  <img src="https://user-images.githubusercontent.com/25660622/210352894-1cefd65e-5520-48f1-9cfb-9911af2a41bb.jpg" alt="Cumulus" height = "250" width = "250">
+  </p>
+  <br>
+  <p>
+Fig.1 - Cirrus, Cumulonimbus, Cumulus.</figcaption>
+  </p>
 
+  
 Since the training set is small, I used a batch size of 1. My intention was to use no batch size at all, but Keras models require a batch size. 
 
 Before I started creating the model I noticed that the test images were given as JSON files, in which the image was encoded as a base64 string in one of the fields. Therefore, I wrote a function called `tensor_image` to decode the image and transform it into a tensor that Keras could manipulate. 
@@ -24,4 +34,4 @@ It mainly consists of separable convolution and relu activation layers. Finally 
 
 ## Results 
 
-The model I have uploaded is just the final one that I decided to keep in the end, but I have made several experiments tweaking different parameters. For instance, increasing the number of filters in convolution layers improves the performance, but also makes the model slow. Changing the dropout also varies the performance but in a non-linear way, I found that it works better between 0.25 and 0.5. 
+The model I have uploaded is just the final one that I decided to keep in the end, but I have made several experiments tweaking different parameters. For instance, I tried different number of filters for each convolution layer. Changing the dropout also varies the performance but in a non-linear way, I found that it works better between 0.25 and 0.5. 
